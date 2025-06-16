@@ -1,10 +1,7 @@
 package com.example;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -19,13 +16,8 @@ public class CatTest {
     @Mock
     static Feline felineMock;
 
-    @InjectMocks
-    static Cat cat;
 
-    @BeforeAll
-    public static void createCatObject(){
-        cat = new Cat(felineMock);
-    }
+    Cat cat = new Cat(felineMock);
 
     @Test
     public void getSoundShouldReturnCatSound(){
@@ -42,8 +34,4 @@ public class CatTest {
 
     }
 
-    @AfterAll
-    public static void deleteCatObject(){
-        cat = null;
-    }
 }
